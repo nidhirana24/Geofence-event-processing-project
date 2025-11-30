@@ -9,6 +9,7 @@ class TransitionEvent(BaseModel):
     type: str="zone_transition"
     vehicle_id:str
     from_zone_id:Optional[str]
+    to_zone_id: Optional[str]
     timestamp:datetime
     location:dict #"lon":floar,"lat":float}
     meta:dict={"confidence": "low_time_default"} #Placeholder for future confidence metrics.

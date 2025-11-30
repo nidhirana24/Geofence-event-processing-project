@@ -59,6 +59,12 @@ class ZoneCurrent(BaseModel):
 
 class VehicleZoneStatus(BaseModel):
     #Ouput model for GET /v1/vehicles/{id}/zone endpoint.
+    vehicle_id: str
+    current_zone: Optional[ZoneCurrent]=None
+    last_seen_at: Optional[datetime]=None
+
+class ZoneStatus(BaseModel):
+    #Internal model for a vehicle's geofence state stored in the MemoryStore.
     vehicle_id:str
     current_zone_id: Optional[str]=None
     entered_at: Optional[datetime]=None
