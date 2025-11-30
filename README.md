@@ -18,6 +18,9 @@ The design focuses on clean architecture, performant in-memory state management,
 Vehicles push location events directly to /location.
 Each event is validated, logged, and processed instantly.
 
+✔Overlapping Zone Resolution-
+ Zones have a priority field to correctly determine the vehicle's zone status when multiple geofences overlap at the same location.
+ 
 ✔ Geofence enter/exit detection-
 The service defines simple polygon-based zones. Using point-in-polygon logic, we determine whether a new coordinate crosses a boundary relative to previous state.
 
