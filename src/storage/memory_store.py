@@ -45,7 +45,7 @@ class MemoryStore:
             logger.info(f"Purged inactive vehicle: {vehicle_id}")
         
         if keys_to_purge:
-            logger_info(f"Purge complete. Total vehicles purged: {len(keys_to_purge)}")
+            logger.info(f"Purge complete. Total vehicles purged: {len(keys_to_purge)}")
 
     def get_all_vehicle_ids(self)-> List[str]:
         #returns a list of all vehicle ids currently in the store.
