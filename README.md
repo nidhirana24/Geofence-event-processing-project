@@ -22,7 +22,7 @@ Each event is validated, logged, and processed instantly.
  Zones have a priority field to correctly determine the vehicle's zone status when multiple geofences overlap at the same location.
  
 ✔ Geofence enter/exit detection-
-The service defines simple polygon-based zones. Using point-in-polygon logic, we determine whether a new coordinate crosses a boundary relative to previous state.
+The service defines simple polygon-based zones. Using point-in-polygon logic, we determine whether a new coordinate crosses a boundary relative to the previous state.
 
 ✔ Vehicle state tracking
 In-memory cache maintains:
@@ -51,7 +51,7 @@ A dictionary holds vehicle states:
 O(1) lookups
 Simple and extremely fast
 Perfect for this challenge timeframe
-In a real deployment I'd use Redis → strong consistency, TTL expiry, horizontal scalability.
+In a real deployment, I'd use Redis → strong consistency, TTL expiry, horizontal scalability.
 
 3. Zones defined as simple polygons
 Flexible for scaling beyond rectangles.
@@ -68,7 +68,7 @@ This approach minimizes unnecessary computations.
 5. Operational Awareness Built-In
 Input validation
 Error responses with detailed context
-Logging on every critical action
+Logging on to every critical action
 Clear separation of concerns
 
 If deployed, hooking this into Prometheus or OpenTelemetry would be trivial.
@@ -82,7 +82,7 @@ cd geofence-service
 pip install -r requirements.txt
 
 3. Start the service
-uvicorn main:app --reload
+uvicorn main: app --reload
 
 4. Access API docs
 http://localhost:8000/docs
@@ -107,7 +107,7 @@ Check current zone, last location, and transitions.
 -GPS updates are reasonably frequent
 -No authentication needed for this challenge
 -Zones are static
--In-memory store is acceptable given challenge scope
+-In-memory store is acceptable given the challenge scope
 -Vehicles do not send absurdly noisy GPS coordinates
 
 🔍 Edge Cases Handled
@@ -148,7 +148,7 @@ project/
 - Configurable zones via API
 
 🛠 Future Improvements
-If I had more than 2 hours, I’d add:
+I’d add:
 - WebSocket live tracking dashboard
 - Replay engine for historical events
 - Heatmap analytics for vehicle density
@@ -159,4 +159,4 @@ If I had more than 2 hours, I’d add:
 
 🏁 Summary
 This codebase is designed to reflect real engineering judgment, not just algorithmic correctness.
-It is intentionally structured, scalable, and production-oriented — while still being lightweight enough to meet the challenge's 2-hour constraint.
+It is intentionally structured, scalable, and production-oriented.
